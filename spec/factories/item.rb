@@ -4,6 +4,6 @@ FactoryGirl.define do
     description { Faker::Lorem.sentence rand 2..4 }
     link { Faker::Internet.url } 
     status 'project'
-    seller { create :user, :seller}
+    artist { create :user, :artist}
   end
 end

@@ -6,13 +6,8 @@ class Ability
 
     can :manage, :all if user.role == 'admin'
 
-    if user.role == 'seller'
+    if user.role == 'artist'
       can :manage, Item, user_id: user.id
-      can :project, Item
-    end
-
-    if user.role == 'shopper'
-      can :read, Item
       can :project, Item
     end
 

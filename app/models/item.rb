@@ -14,14 +14,7 @@
 #  updated_at  :datetime
 #
 
-require 'rails_helper'
-
-describe Item do
-  %i(artist title description status).each do |field|
-    it "requires a #{field}" do 
-      item = build :item, field => nil
-      expect( item.valid? ).to be false
-    end
-  end
+class Item < ActiveRecord::Base
+  belongs_to :artist, class_name: "User", foreign_key: "user_id"
+  validates_presence_of :artist, :title, :description, :status
 end
-
