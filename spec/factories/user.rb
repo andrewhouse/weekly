@@ -6,12 +6,8 @@ FactoryGirl.define do
     role 'guest'
   end
 
-  trait :shopper do
-    # v- DB column role
-    role 'shopper'
-  end
-  trait :seller do
-    role 'seller'
+  trait :artist do
+    role 'artist'
   end
   trait :admin do
     role 'admin'
