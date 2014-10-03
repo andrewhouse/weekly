@@ -13,7 +13,7 @@
 #  last_sign_in_at        :datetime
 #  current_sign_in_ip     :inet
 #  last_sign_in_ip        :inet
-#  role                   :string(255)
+#  role                   :string(255)      default("artist")
 #  created_at             :datetime
 #  updated_at             :datetime
 #
@@ -25,8 +25,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   
   has_many :posted_items, class_name: "Item", source: "items"
-  # has_many :projected_items, through: :projections, class_name: "Item", source: "items"
-
+  has_many :projections
+  has_many :items, through: :projections
   validates_presence_of :role
   ROLES = %i[guest artist admin banned]
 end

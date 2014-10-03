@@ -32,4 +32,29 @@ feature Item do
     expect(page).to have_content "new title"
   end
   
+  it 'allows projected prices' do
+    artist = create :user, :artist
+    login artist
+    item = create :item
+
+    visit item_path item
+    fill_in "Price", with: "2.99"
+
+    click_button "Create Projection"
+
+    expect(page).to have_content "2.99"
+    expect(Projection.count).to eq 1
+  end
+
+  it "does not allow a user to project twice on the same item" do
+    artist = create :user, :artist
+    login artist
+    item = create :item
+
+    visit item_path item
+    fill_in "Price", with: "2"
+    click_button "Create Projection"
+
+    expect(page).not_to have_content "Create Projection"
+  end
 end
