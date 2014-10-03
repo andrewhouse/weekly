@@ -8,6 +8,7 @@ class ItemsController < ApplicationController
 
   def show
     authorize! :project, @item
+    @projection = current_user.projections.new
   end
 
   def new
@@ -49,7 +50,7 @@ class ItemsController < ApplicationController
   private
 
   def get_item
-    @item = Item.find params[:id]
+    @item = Item.includes(:projections).find(params[:id])
   end
 
   def item_params

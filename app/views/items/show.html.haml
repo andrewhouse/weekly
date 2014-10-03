@@ -1,3 +1,12 @@
 %h1= @item.title
 %h3= @item.description
-= link_to t('.destroy', :default => t("helpers.links.destroy")), @item, :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'
+-if current_user != @item.artist && current_user.items.include?(@item) == false
+  = simple_form_for @projection, :html => { class: 'form-horizontal' } do |f|
+    = f.hidden_field :item_id, value: @item.id
+    = f.input :price
+    = f.button :submit, :class => 'btn-success'
+-if current_user == @item.artist
+  = link_to t('.destroy', :default => t("helpers.links.destroy")), @item, :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'
+
+-@item.projections.each do |p|
+  %h5= number_to_currency p.price
