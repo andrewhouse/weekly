@@ -9,10 +9,8 @@ class Ability
     if user.role == 'artist'
       can :manage, Item, user_id: user.id
       can :project, Item
+      can :modify, Projection
     end
 
-    if user.role == 'guest'
-      can :read, Item
-    end
   end
 end

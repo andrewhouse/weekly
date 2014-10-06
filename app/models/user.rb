@@ -29,4 +29,8 @@ class User < ActiveRecord::Base
   has_many :items, through: :projections
   validates_presence_of :role
   ROLES = %i[guest artist admin banned]
+
+  def average_all_projections
+    projections.map(&:price).inject(&:+)/(projections.count)
+  end
 end

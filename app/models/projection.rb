@@ -8,6 +8,7 @@
 #  item_id    :integer
 #  created_at :datetime
 #  updated_at :datetime
+#  mail       :boolean
 #
 
 class Projection < ActiveRecord::Base

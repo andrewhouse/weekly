@@ -1,0 +1,13 @@
+%h1= @profile.email
+%table.table.table-striped
+  %thead
+    %tr
+      %th Title
+      %th Average(With Range)
+      %th Average(Without Range)
+  %tbody
+    -@profile.posted_items.each do |item|
+      %tr
+        %td= item.title
+        %td= item.average
+        %td= item.entire_average
