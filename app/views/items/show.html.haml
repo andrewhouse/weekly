@@ -1,11 +1,15 @@
 %h1= @item.title
 %h3= @item.description
--if current_user != @item.artist && current_user.items.include?(@item) == false
-  = simple_form_for @projection, :html => { class: 'form-horizontal' } do |f|
-    = f.hidden_field :item_id, value: @item.id
-    = f.input :price
-    = f.button :submit, :class => 'btn-success'
--if current_user == @item.artist
+-if closed @item
+  %h3 This Item has exceeded the 7 Day Projection Week
+-else
+  - if not_artist(@item) 
+    = simple_form_for @projection, :html => { class: 'form-horizontal' } do |f|
+      = f.hidden_field :item_id, value: @item.id
+      = f.input :price
+      = f.input :mail, label: "Would You Like to Receive Updates About #{@item.title}"
+      = f.button :submit, :class => 'btn-success'
+- if is_artist
   = link_to t('.destroy', :default => t("helpers.links.destroy")), @item, :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'
 
 -@item.projections.each do |p|

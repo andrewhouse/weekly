@@ -2,13 +2,11 @@ class ItemsController < ApplicationController
   before_action :get_item, only: [:show, :edit, :update, :destroy]
 
   def index
-    authorize! :read, Item
     @items = Item.all
   end
 
   def show
-    authorize! :project, @item
-    @projection = current_user.projections.new
+    @projection = current_user.projections.new if current_user
   end
 
   def new

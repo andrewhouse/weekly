@@ -15,6 +15,7 @@ gem "unicorn"
 gem "pg"
 gem 'devise'
 gem 'cancancan'
+gem 'letter_opener'
 
 group :development do
   gem "quiet_assets"
