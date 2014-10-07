@@ -16,6 +16,10 @@ gem "pg"
 gem 'devise'
 gem 'cancancan'
 gem 'letter_opener'
+gem 'paperclip'
+gem 'aws-sdk'
+gem 'figaro'
+gem 'nested_form'
 
 group :development do
   gem "quiet_assets"

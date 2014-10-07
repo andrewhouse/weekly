@@ -19,6 +19,8 @@ class Item < ActiveRecord::Base
   validates_presence_of :artist, :title, :description, :status
   has_many :projections
   has_many :users, through: :projections
+  has_many :images
+  accepts_nested_attributes_for :images
 
   after_update :send_email
   STATUS = %i[projection closed hidden]

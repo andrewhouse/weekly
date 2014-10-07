@@ -12,10 +12,13 @@ class ItemsController < ApplicationController
   def new
     authorize! :new, Item
     @item = current_user.posted_items.new
+    @item.images.build
+    # ^ Used to Build the Nested Resource Form
   end
 
   def create
     authorize! :create, Item
+binding.pry
     @item = current_user.posted_items.create(item_params)
     if @item.save!
       redirect_to @item, notice: "Item was Successfully Created"
@@ -52,6 +55,6 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(:title, :description, :link, :max_price, :min_price)
+    params.require(:item).permit(:title, :description, :link, :max_price, :min_price, :picture, :image, images_attributes: [:picture, :id])
   end
 end
