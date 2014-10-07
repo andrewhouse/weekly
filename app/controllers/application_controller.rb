@@ -9,4 +9,12 @@ class ApplicationController < ActionController::Base
       u.permit(:email, :password, :password_confirmation, :role)
     end
   end
+
+  rescue_from CanCan::AccessDenied do |exception|
+    if current_user
+      redirect_to root_path, :alert => exception.message
+    else
+      redirect_to new_user_session_path, :alert => "Please sign in"
+    end
+  end
 end

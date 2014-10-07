@@ -3,7 +3,7 @@
 -if closed @item
   %h3 This Item has exceeded the 7 Day Projection Week
 -else
-  - if not_artist(@item) 
+  - if not_artist(@item) && not_banned
     = simple_form_for @projection, :html => { class: 'form-horizontal' } do |f|
       = f.hidden_field :item_id, value: @item.id
       = f.input :price

@@ -1,13 +1,17 @@
 %h1= @profile.email
+-if current_user.role == 'admin'
+  =button_to "Ban", {action: 'ban', id: @profile.id}, method: 'post' 
 %table.table.table-striped
   %thead
     %tr
       %th Title
       %th Average(With Range)
       %th Average(Without Range)
+      %th Number of Projections
   %tbody
     -@profile.posted_items.each do |item|
       %tr
         %td= item.title
         %td= item.average
         %td= item.entire_average
+        %td= item.projections.count
