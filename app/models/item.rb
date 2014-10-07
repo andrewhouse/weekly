@@ -17,13 +17,15 @@
 class Item < ActiveRecord::Base
   belongs_to :artist, class_name: "User", foreign_key: "user_id"
   validates_presence_of :artist, :title, :description, :status
-  has_many :projections
+  has_many :projections, dependent: :destroy
   has_many :users, through: :projections
-  has_many :images
+  has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images
 
   after_update :send_email
   STATUS = %i[projection closed hidden]
+
+  scope :old, -> {where("created_at < ?", 7.days.ago)}
 
   def send_email
     if status_changed?
@@ -54,10 +56,9 @@ class Item < ActiveRecord::Base
 
   def average
     return "No Projected Prices" if projections.blank?
-    min = self.projections.where("price > ?", min_price) 
-    max = min.where("price < ?", max_price)
-    unless max.blank?
-      max.map(&:price).inject(&:+)/(max.count) 
+    avg = projections.where(price: min_price.to_f .. max_price.to_f )
+    unless avg.blank?
+      avg.map(&:price).inject(&:+)/(avg.count) 
     else
       "All Projected Prices Are Outside of Your Range"
     end

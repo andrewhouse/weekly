@@ -6,9 +6,12 @@
   = f.input :max_price, label: "Above"
   = f.input :min_price, label: "Below"
   = f.input :link
-  = f.fields_for :images do |i|
-    =i.input :picture
-  = f.link_to_add "Add an image", :images 
+  = f.fields_for :images do |j|
+    =j.input :picture
+    = j.link_to_remove do
+      %i.fa.fa-times  Remove Image
+  = f.link_to_add :images do
+    %i.fa.fa-check Add An Image
   = f.button :submit, :class => 'btn-primary'
 
 
