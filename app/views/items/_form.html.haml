@@ -1,9 +1,14 @@
-= simple_form_for @item, :html => { :class => 'form-horizontal' } do |f|
+= simple_nested_form_for @item, :html => { :class => 'form-horizontal' } do |f|
   = f.input :title, autofocus: true
   = f.input :description
   %h4
     Don't Accept Projected Prices
-    = f.input :max_price, label: "Above"
-    = f.input :min_price, label: "Below"
+  = f.input :max_price, label: "Above"
+  = f.input :min_price, label: "Below"
   = f.input :link
+  = f.fields_for :images do |i|
+    =i.input :picture
+  = f.link_to_add "Add an image", :images 
   = f.button :submit, :class => 'btn-primary'
+
+

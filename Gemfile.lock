@@ -32,6 +32,11 @@ GEM
       activerecord (>= 2.3.0)
       rake (>= 0.8.7)
     arel (5.0.1.20140414130214)
+    aws-sdk (1.54.0)
+      aws-sdk-v1 (= 1.54.0)
+    aws-sdk-v1 (1.54.0)
+      json (~> 1.4)
+      nokogiri (>= 1.4.4)
     bcrypt (3.1.7)
     better_errors (2.0.0)
       coderay (>= 1.0.0)
@@ -51,6 +56,10 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    climate_control (0.0.3)
+      activesupport (>= 3.0)
+    cocaine (0.5.4)
+      climate_control (>= 0.0.3, < 1.0)
     coderay (1.1.0)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
@@ -81,6 +90,8 @@ GEM
       railties (>= 3.0.0)
     faker (1.4.3)
       i18n (~> 0.5)
+    figaro (1.0.0)
+      thor (~> 0.14)
     haml (4.1.0.beta.1)
       tilt
     haml-rails (0.5.3)
@@ -115,9 +126,15 @@ GEM
     mini_portile (0.5.3)
     minitest (5.4.2)
     multi_json (1.10.1)
+    nested_form (0.3.2)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
     orm_adapter (0.5.0)
+    paperclip (4.2.0)
+      activemodel (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      cocaine (~> 0.5.3)
+      mime-types
     pg (0.17.1)
     pry (0.10.1)
       coderay (~> 1.1.0)
@@ -233,6 +250,7 @@ PLATFORMS
 
 DEPENDENCIES
   annotate
+  aws-sdk
   better_errors
   binding_of_caller
   cancancan
@@ -242,12 +260,15 @@ DEPENDENCIES
   erb2haml
   factory_girl_rails
   faker
+  figaro
   haml-rails
   jbuilder (~> 2.0)
   jquery-rails
   launchy
   letter_opener
+  nested_form
   nokogiri (= 1.6.1)
+  paperclip
   pg
   pry-byebug
   pry-rails
