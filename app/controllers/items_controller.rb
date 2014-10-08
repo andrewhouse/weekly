@@ -18,7 +18,6 @@ class ItemsController < ApplicationController
 
   def create
     authorize! :create, Item
-binding.pry
     @item = current_user.posted_items.create(item_params)
     if @item.save!
       redirect_to @item, notice: "Item was Successfully Created"

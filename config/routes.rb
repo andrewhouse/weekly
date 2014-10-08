@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'templates/serve'
+
+  get '/templates/:name' => "templates#serve", as: 'template'
   get '/profile/:id' => "users#profile", as: 'profile'
   post '/ban' => 'users#ban', as: 'ban'
   devise_for :users

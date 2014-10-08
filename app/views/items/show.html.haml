@@ -9,8 +9,9 @@
       = f.input :price
       = f.input :mail, label: "Would You Like to Receive Updates About #{@item.title}"
       = f.button :submit, :class => 'btn-success'
-- if is_artist
-  = link_to t('.destroy', :default => t("helpers.links.destroy")), @item, :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'
 
 -@item.projections.each do |p|
   %h5= number_to_currency p.price
+
+- if is_artist
+  = link_to t('.destroy', :default => t("helpers.links.destroy")), @item, :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'
