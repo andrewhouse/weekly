@@ -2,6 +2,8 @@
 %h3= @item.description
 %h3= "Posted by: #{@item.artist.email}"
 -# TODO Add users can link to their personal selling site
+-@item.images.each do |image|
+  =link_to image_tag(image.picture.url(:medium)), image.picture.url
 -if closed @item
   %h3 This Item has exceeded the 7 Day Projection Week
 -else
