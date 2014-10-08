@@ -69,4 +69,7 @@ class Item < ActiveRecord::Base
     projections.map(&:price).inject(&:+)/projections.count
   end
 
+  def days_remaining
+    days = created_at + 7.days
+  end
 end
