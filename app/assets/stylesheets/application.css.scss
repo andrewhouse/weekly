@@ -15,14 +15,61 @@
  */
 
 .bg-outer {
-  background-color: steelblue;
+  background-color: #9cc;
 }
 
 .bg-inner{
-  background-color: lightgray;
+  outline: 1px solid #aaa;         
+  border-top: 1px solid #fff;
+  padding: 10px;
+  background: lightgray;
 }
 
 .round {
   border-radius: 1%;
   text-align:center;
+}
+
+.col-lg-3{
+    text-align: center;
+    height: 310px;
+    margin-top: 2%;
+    margin-left: 6%;
+    background: #e4e4e4;
+    outline: 1px solid #aaa;         
+    border-top: 1px solid #fff;
+    padding: 10px;
+  a{
+    display: block;
+    text-decoration: none;
+    color: black;
+  }
+  img{
+    height: 200px;
+    width: 250px; 
+    background: #ddd;
+    outline: 1px solid #ccc;         
+    border-top: 1px solid #fff;
+    padding: 5px;
+  }
+  p{
+    text-overflow: ellipsis;
+  }
+}
+
+.col-lg-4{
+  img{
+    height:300px;
+    width: 350px;
+  }
+}
+
+.col-lg-8{
+  text-align: center;
+  margin-top: 3%;
+  margin-bottom: 3%;
+}
+
+.slideImg{
+  height: 300px;
 }

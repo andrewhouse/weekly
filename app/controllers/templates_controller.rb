@@ -1,5 +1,5 @@
 class TemplatesController < ApplicationController
   def serve
-    render params[:name]
+    render params[:name], layout: false
   end
 end

@@ -9,6 +9,6 @@
       %ul.nav.navbar-nav
         -if current_user
           %li= link_to "My Profile", profile_path(current_user)
-          %li= link_to "List New Item", new_item_path
-        %li= link_to "Items", items_path
+          %li= link_to "New Item", new_item_path
+        %li= link_to "Items", "/#/items"
 

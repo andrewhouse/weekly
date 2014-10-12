@@ -1,4 +1,4 @@
 App.
-  factory('IndexFactory', ['resource', function(resource){
-    return $resource('/.json')
-  }])
+  factory('IndexFactory', ['$resource', function($resource){
+    return $resource('/items.json')
+  }]);

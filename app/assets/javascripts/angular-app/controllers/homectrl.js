@@ -1,3 +1,3 @@
 App.
-  controller('HomeCtrl', ['scope', '$routeParams', 'HomeFactory', function($scope, $routeParams, HomeFactory){
+  controller('HomeCtrl', ['$scope', '$routeParams', 'HomeFactory', function($scope, $routeParams, HomeFactory){
   }])

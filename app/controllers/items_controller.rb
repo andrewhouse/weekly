@@ -20,7 +20,7 @@ class ItemsController < ApplicationController
     authorize! :create, Item
     @item = current_user.posted_items.create(item_params)
     if @item.save!
-      redirect_to @item, notice: "Item was Successfully Created"
+      redirect_to "/#/items/#{@item.id}", notice: "Item was Successfully Created"
     else
       flash[:danger] = 'Item could not be saved'
       render :new

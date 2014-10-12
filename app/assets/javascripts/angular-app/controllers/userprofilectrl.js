@@ -1,4 +1,4 @@
 App.
-  controller('UserProfileCtrl', ['scope','$routeParams', 'UserProfileFactory', function($scope, $routeParams, UserProfileFactory){
+  controller('UserProfileCtrl', ['$scope','$routeParams', 'UserProfileFactory', function($scope, $routeParams, UserProfileFactory){
   }])
 

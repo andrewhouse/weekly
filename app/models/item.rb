@@ -43,7 +43,8 @@ class Item < ActiveRecord::Base
   end
 
   def self.recently_updated
-    Item.all.sort_by(&:updated_at).last(3).reverse
+    #Item.all.sort_by(&:updated_at).last(3).reverse
+    Item.order(:updated_at => :desc).limit 3
   end
 
   def self.popular
@@ -51,7 +52,8 @@ class Item < ActiveRecord::Base
   end
 
   def self.new_items
-    Item.all.sort_by(&:created_at).last(3).reverse
+    # Item.all.sort_by(&:created_at).last(3).reverse
+    Item.order(:created_at => :desc).limit 3
   end
 
   def average

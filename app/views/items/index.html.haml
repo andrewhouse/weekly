@@ -1,4 +1,10 @@
-%h1.jumbotron This is a Test
--@items.each do |item|
-  %h4= link_to item.title, item_path(item)
-  %h5= item.description
+.container
+  .col-lg-3{'ng-repeat' => 'item in items' }
+    %a{"href" => "/#/items/{{item.id}}"}
+      %img{"ng-src" => "{{item.images[0].url}}"}
+    %a{"href" => "/#/items/{{item.id}}"}
+      %h4 {{item.title}}
+    %p {{item.description | limitTo: 115 }}
+  -#@items.each do |item|
+    %h4= link_to item.title, item_path(item)
+    %h5= item.description

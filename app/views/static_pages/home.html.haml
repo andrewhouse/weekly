@@ -1,10 +1,21 @@
-%h1 StaticPages#home
-%h3 Recently Updated Items
-- @updated_items.each do |item|
-  %h5= item.title
-%h3 High Demand Items
-- @popular_items.each do |item|
-  %h5= item.title
-%h3 Newly Added Items
-- @new_items.each do |item|
-  %h5= item.title
+%div{'ng-controller' => 'HomeCtrl'}
+  %div{'ng-controller' => 'CarouselDemoCtrl'}
+    %div{'ng-repeat' => 'h in home.updated'}
+      %div{'style' => 'height: 200px'}
+        %carousel{'interval' => 'myInterval'}
+          %slide{'ng-repeat' => 'slide in image', 'active' => 'slide.active'}
+            %img{'ng-src' => '{{slide.image}}', 'style' => 'margin:auto;'}
+            .carousel-caption
+              %h4 
+                {{h.title}}
+              %p
+                {{slide.text}}
+    /%h3 Recently Updated Items
+    -# @home[:updated].each do |item|
+      %h5= item.title
+    /%h3 High Demand Items
+    -# @home[:popular].each do |item|
+      %h5= item.title
+    /%h3 Newly Added Items
+    -# @home[:new].each do |item|
+      %h5= item.title
