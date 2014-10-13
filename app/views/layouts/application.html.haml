@@ -1,11 +1,12 @@
 !!! 5
-%html(lang="en")
+%html{'ng-app'=>'itemApp'}
+  %base(href='/')
   = render 'layouts/head'
-  %body
-    = render 'layouts/navbar'
+  %body.bg-outer
     .container
       .row
-        .col-lg-12
+        .bg-inner.round
+          =render 'layouts/navbar'
           = bootstrap_flash
           = yield
       %footer

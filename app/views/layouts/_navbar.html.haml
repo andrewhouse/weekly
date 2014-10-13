@@ -1,4 +1,4 @@
-.navbar.navbar-default.navbar-static-top
+.navbar.navbar-default.navbar-static-top.bg-inner
   .container
     %button.navbar-toggle(type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse")
       %span.icon-bar
@@ -9,6 +9,20 @@
       %ul.nav.navbar-nav
         -if current_user
           %li= link_to "My Profile", profile_path(current_user)
-          %li= link_to "List New Item", new_item_path
-        %li= link_to "Items", items_path
+          %li= link_to "New Item", new_item_path
+        %li= link_to "Items", "/#/items"
+        %li.dropdown
+          %a.btn-btn-default.dropdown-toggle{id:"dropdownMenu1", "data-toggle"=> 'dropdown'}
+            Profile Options
+            %b.caret
+          %ul.dropdown-menu.dropdown-menu-right{role:'menu', 'aria-labelledby'=>"dropdownMenu1"}
+            - if current_user
+              / Signed in
+              %li= link_to "Edit Account", edit_user_registration_path
+              %li= link_to "Log out", destroy_user_session_path, method: :delete
+            - else
+              / Not signed in
+              %li= link_to "Log in", new_user_session_path
+              %li= link_to "Sign up", new_user_registration_path
+
 

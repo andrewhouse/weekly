@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :get_item, only: [:show, :edit, :update, :destroy]
 
   def index
-    @items = Item.all
+    @items = Item.includes(:images, :projections).all
   end
 
   def show
@@ -18,10 +18,9 @@ class ItemsController < ApplicationController
 
   def create
     authorize! :create, Item
-binding.pry
     @item = current_user.posted_items.create(item_params)
     if @item.save!
-      redirect_to @item, notice: "Item was Successfully Created"
+      redirect_to "/#/items/#{@item.id}", notice: "Item was Successfully Created"
     else
       flash[:danger] = 'Item could not be saved'
       render :new

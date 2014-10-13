@@ -1,0 +1,109 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+.bg-outer {
+  background-color: #9cc;
+}
+
+.bg-inner{
+  outline: 1px solid #aaa;         
+  border-top: 1px solid #fff;
+  padding: 10px;
+  background: lightgray;
+}
+
+.round {
+  border-radius: 1%;
+  text-align:center;
+}
+
+.col-lg-3{
+    text-align: center;
+    height: 310px;
+    margin-top: 2%;
+    margin-left: 6%;
+    background: #e4e4e4;
+    outline: 1px solid #aaa;         
+    border-top: 1px solid #fff;
+    padding: 10px;
+  a{
+    display: block;
+    text-decoration: none;
+    color: black;
+  }
+  img{
+    height: 200px;
+    width: 250px; 
+    background: #fff;
+  }
+  p{
+    text-overflow: ellipsis;
+  }
+}
+
+.col-lg-4{
+  img{
+    height:300px;
+    width: 350px;
+  }
+}
+
+.col-lg-8{
+  text-align: center;
+  margin-top: 3%;
+  margin-bottom: 3%;
+}
+
+.slideImg{
+  height: 300px;
+}
+
+.css-form input.ng-invalid.ng-dirty {
+   background-color: #FA787E;
+}
+
+.css-form input.ng-valid.ng-dirty {
+   background-color: #78FA89;
+}
+
+.well{
+    background: #ddd;
+    margin-right: 3%;
+    outline: 1px solid #aaa;         
+    border-top: 1px solid #fff;
+    padding: 10px;
+    .innerWell{
+      background: #e4e4e4;
+      outline: 1px solid #ccc;         
+      border-top: 1px solid #fff;
+      padding: 10px;
+    }
+}
+
+.form-group{
+  label{
+    font-size: 1.25em;
+  }
+}
+
+.fUpload{
+  color: red;
+  text-align: center;
+}
+
+.carousel img {
+  height: 100%;
+}

@@ -19,7 +19,7 @@ class Item < ActiveRecord::Base
   validates_presence_of :artist, :title, :description, :status
   has_many :projections, dependent: :destroy
   has_many :users, through: :projections
-  has_many :images, dependent: :destroy
+  has_many :images, dependent: :destroy, inverse_of: :item
   accepts_nested_attributes_for :images
 
   after_update :send_email
@@ -43,15 +43,32 @@ class Item < ActiveRecord::Base
   end
 
   def self.recently_updated
-    Item.all.sort_by(&:updated_at).last(3).reverse
+    #Item.all.sort_by(&:updated_at).last(3).reverse
+    updated = Item.order(:updated_at => :desc).limit 3
+    hash = []
+    updated.each do |up|
+      hash << {title: up.title, image: up.images.first.picture.url(:medium), id: up.id}
+    end 
+    hash
   end
 
   def self.popular
-    Item.all.sort_by{|a|a.projections.count}.last(3).reverse
+    popular = Item.all.sort_by{|a|a.projections.count}.last(3).reverse
+    hash = []
+    popular.each do |up|
+      hash << {title: up.title, image: up.images.first.picture.url(:medium), id: up.id}
+    end 
+    hash
   end
 
   def self.new_items
-    Item.all.sort_by(&:created_at).last(3).reverse
+    # Item.all.sort_by(&:created_at).last(3).reverse
+    new = Item.order(:created_at => :desc).limit 3
+    hash = []
+    new.each do |up|
+      hash << {title: up.title, image: up.images.first.picture.url(:medium), id: up.id}
+    end 
+    hash
   end
 
   def average
@@ -69,4 +86,7 @@ class Item < ActiveRecord::Base
     projections.map(&:price).inject(&:+)/projections.count
   end
 
+  def days_remaining
+    days = created_at + 7.days
+  end
 end
