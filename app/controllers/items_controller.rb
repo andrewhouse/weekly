@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :get_item, only: [:show, :edit, :update, :destroy]
 
   def index
-    @items = Item.all
+    @items = Item.includes(:images, :projections).all
   end
 
   def show

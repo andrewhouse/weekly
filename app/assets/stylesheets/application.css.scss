@@ -47,10 +47,7 @@
   img{
     height: 200px;
     width: 250px; 
-    background: #ddd;
-    outline: 1px solid #ccc;         
-    border-top: 1px solid #fff;
-    padding: 5px;
+    background: #fff;
   }
   p{
     text-overflow: ellipsis;
@@ -72,4 +69,41 @@
 
 .slideImg{
   height: 300px;
+}
+
+.css-form input.ng-invalid.ng-dirty {
+   background-color: #FA787E;
+}
+
+.css-form input.ng-valid.ng-dirty {
+   background-color: #78FA89;
+}
+
+.well{
+    background: #ddd;
+    margin-right: 3%;
+    outline: 1px solid #aaa;         
+    border-top: 1px solid #fff;
+    padding: 10px;
+    .innerWell{
+      background: #e4e4e4;
+      outline: 1px solid #ccc;         
+      border-top: 1px solid #fff;
+      padding: 10px;
+    }
+}
+
+.form-group{
+  label{
+    font-size: 1.25em;
+  }
+}
+
+.fUpload{
+  color: red;
+  text-align: center;
+}
+
+.carousel img {
+  height: 100%;
 }

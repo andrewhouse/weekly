@@ -36,10 +36,7 @@ var App = angular.module('itemApp', ['ngResource', 'ngRoute', 'ui.bootstrap'])
 
 .controller('CarouselDemoCtrl', ['$scope', 'HomeFactory', function ($scope, HomeFactory) {
     $scope.home = HomeFactory.get(function(home){
-      home.updated = home['updated_items']
-      home.newItem = home['new_items']
-      console.log(home.updated);
-      home.popular = home['popular_items']
+      console.log(home);
     });
     
   $scope.myInterval = 5000;
