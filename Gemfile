@@ -20,6 +20,7 @@ gem 'paperclip'
 gem 'aws-sdk'
 gem 'figaro'
 gem 'nested_form'
+gem 'mandrill-api'
 
 group :development do
   gem "quiet_assets"

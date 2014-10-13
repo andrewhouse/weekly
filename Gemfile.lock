@@ -82,6 +82,7 @@ GEM
     erb2haml (0.1.5)
       html2haml
     erubis (2.7.0)
+    excon (0.40.0)
     execjs (2.2.1)
     factory_girl (4.4.0)
       activesupport (>= 3.0.0)
@@ -121,6 +122,9 @@ GEM
       launchy (~> 2.2)
     mail (2.6.1)
       mime-types (>= 1.16, < 3)
+    mandrill-api (1.0.52)
+      excon (>= 0.16.0, < 1.0)
+      json (>= 1.7.7, < 2.0)
     method_source (0.8.2)
     mime-types (2.3)
     mini_portile (0.5.3)
@@ -266,6 +270,7 @@ DEPENDENCIES
   jquery-rails
   launchy
   letter_opener
+  mandrill-api
   nested_form
   nokogiri (= 1.6.1)
   paperclip
