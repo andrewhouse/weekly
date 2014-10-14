@@ -1,6 +1,6 @@
 %div{'ng-controller' => 'HomeCtrl'}
   %div{'ng-controller' => 'CarouselDemoCtrl'}
-    %div{'ng-repeat' => 'h in home'}
+    %div.car{'ng-repeat' => 'h in home'}
       %h3{'ng-if' => 'h == home["popular_items"]'} Most Popular 
       %h3{'ng-if' => 'h == home["updated_items"]'} Recently Updated
       %h3{'ng-if' => 'h == home["new_items"]'} New Items
@@ -9,10 +9,8 @@
           %slide{'ng-repeat' => 'slide in h', 'active' => 'slide.active'}
             %a{'href' => '#/items/{{slide.id}}'}
               %img{'ng-src' => '{{slide.image}}', 'style' => 'margin:auto;'}
-            .carousel-caption
-              %h4 
-              %p
-                {{slide.title}}
+            %a{'href' => '#/items/{{slide.id}}'}
+              %h4 {{slide.title}}
     /%h3 Recently Updated Items
     -# @home[:updated].each do |item|
       %h5= item.title

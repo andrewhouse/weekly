@@ -89,4 +89,8 @@ class Item < ActiveRecord::Base
   def days_remaining
     days = created_at + 7.days
   end
+
+  def is_old
+    Item.old.include?(self)
+  end
 end

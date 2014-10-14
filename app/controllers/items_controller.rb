@@ -44,7 +44,7 @@ class ItemsController < ApplicationController
   def destroy
     authorize! :destroy, @item
     @item.destroy
-    redirect_to items_path, notice: "Item was Successfully Destroyed"
+    redirect_to '/#/items', notice: "Item was Successfully Destroyed"
   end
 
   private

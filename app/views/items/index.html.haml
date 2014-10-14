@@ -1,5 +1,7 @@
 .container
-  .col-lg-3{'ng-repeat' => 'item in items' }
+  %input.search{'ng-model' => 'searchText', 'ng-model-options' => '{debounce: 500}', "placeholder" => "Search by Title or Description", 'autofocus' => true} 
+  %br
+  .col-lg-3{'ng-repeat' => 'item in items | filter:searchText' }
     %a{"href" => "/#/items/{{item.id}}"}
       %img{"ng-src" => "{{item.images[0].url}}"}
     %a{"href" => "/#/items/{{item.id}}"}
