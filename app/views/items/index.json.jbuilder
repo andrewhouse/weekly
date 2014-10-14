@@ -1,5 +1,5 @@
 json.array! @items do |item|
-  json.(item, :id, :title, :description, :status, :link)
+  json.(item, :id, :title, :description, :status, :link, :created_at, :updated_at)
   json.(item.artist, :email)
   json.images item.images do |image|
     json.(image.picture, :url)
