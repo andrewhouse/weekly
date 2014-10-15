@@ -30,6 +30,15 @@ body{
 
 .navbar{
   background: slategray;
+  .navbar-brand{
+    font-size: 2em;
+  }
+}
+.nav{
+  .navbar-brand{
+    font-size: 2em;
+  }
+  font-size: 1.2em;
 }
 
 .round {
@@ -113,7 +122,6 @@ body{
 }
 
 .car{
-  margin-top: 5%;
 }
 
 .search{
@@ -123,6 +131,50 @@ body{
 }
 
 .sort{
-  margin-left: -12%;
+  margin-left: -3.5%;
+  text-align: center;
+  button{
+    width: 250px; 
+  }
 }
 
+th{
+  text-align: center;
+}
+
+table{
+  color:white;
+}
+.table-striped>tbody>tr{
+   background-color: slategray;
+   th{
+   }
+}
+
+.table-striped>thead>tr{
+   background-color: slategray;
+}
+
+.left{
+  margin-left:4%;
+}
+
+.right{
+  margin-right:4%;
+}
+
+.colMid{
+  padding-left: 100px;
+}
+
+.carousel-caption a h4{
+  color: white;
+}
+
+blockquote {
+  margin-bottom: -8%;
+  margin-top: -4%;
+  small {
+    color: #2b3e50;
+  }
+}

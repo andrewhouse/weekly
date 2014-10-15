@@ -70,10 +70,12 @@ var App = angular.module('itemApp', ['ngResource', 'ngRoute', 'ui.bootstrap'])
 
 .controller('DropdownCtrl', ['$scope', function ($scope) {
   $scope.choices = [
-    'title',
+    'Title( A - Z )',
+    'Title( Z - A )',
     'description',
-    'created_at',
-    'updated_at'
+    'Oldest',
+    'Recently Updated',
+    'Newest'
   ];
 
   $scope.status = {

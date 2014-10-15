@@ -1,15 +1,15 @@
 .container
   = simple_nested_form_for @item, :html => { :class => 'form-horizontal' } do |f|
-    .col-lg-4
-      = f.input :title, autofocus: true
-      = f.input :description, input_html: { rows: '10', cols: '45'}
-    .col-lg-4
+    .col-lg-4.form-group
+      = f.input :title, autofocus: true, class: 'form-control'
+      = f.input :description, input_html: { rows: '10', cols: '40'}, class: 'form-control'
+    .col-lg-4.form-group.colMid
       %h4
         Set Your Item's Range
       = f.input :max_price, label: "Maximum Price"
       = f.input :min_price, label: "Minimum Price"
       = f.input :link, label: 'Link To Your Website'
-    .col-lg-4
+    .col-lg-4.form-group.pull-right
       = f.fields_for :images do |j|
         =j.input :picture, label: "Upload Product Images"
         = j.link_to_remove do

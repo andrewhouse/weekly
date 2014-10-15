@@ -1,7 +1,7 @@
 %h1= @profile.email
 -if current_user.role == 'admin'
   =button_to "Ban", {action: 'ban', id: @profile.id}, method: 'post' 
-%table.table.table-striped
+%table.table.table-striped.table-hover
   %thead
     %tr
       %th Title

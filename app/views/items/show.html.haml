@@ -1,6 +1,6 @@
 %h1 {{item.title}}
 .container
-  %div{'ng-controller' => 'CarouselDemoCtrl'}
+  %div.col-lg-offset-2.col-lg-8.col-lg-offset-2{'ng-controller' => 'CarouselDemoCtrl'}
     %div{'style' => 'height: 300px'}
       %carousel{'interval' => 'myInterval'}
         %slide{'ng-repeat' => 'slide in item.images', 'active' => 'slide.active'}
