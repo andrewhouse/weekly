@@ -1,4 +1,4 @@
-json.extract! @item, :title, :description, :status, :link, :average, :entire_average, :is_old
+json.extract! @item, :title, :description, :status, :link, :average, :entire_average, :is_old, :days_remaining
 json.(@item.artist, :email)
 if current_user
   json.current_user current_user.email 

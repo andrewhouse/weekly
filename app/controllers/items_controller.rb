@@ -10,7 +10,7 @@ class ItemsController < ApplicationController
   end
 
   def new
-    authorize! :new, Item
+    authorize! :new, @item
     @item = current_user.posted_items.new
     @item.images.build
     # ^ Used to Build the Nested Resource Form

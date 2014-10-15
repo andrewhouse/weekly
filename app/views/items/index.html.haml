@@ -16,7 +16,13 @@
       %img{"ng-src" => "{{item.images[0].url}}"}
     %a{"href" => "/#/items/{{item.id}}"}
       %h4 {{item.title}}
-    %p {{item.description | limitTo: 115 }}
+      %div{'ng-if' => 'item.days_remaining < 1'}
+        %h5 Closed
+      %div{'ng-if' => 'item.days_remaining == 1'}
+        %h5 {{item.days_remaining}} Day Remaining
+      %div{'ng-if' => 'item.days_remaining > 1'}
+        %h5 {{item.days_remaining}} Days Remaining
+    %p {{item.description | limitTo: 95 }}
   -#@items.each do |item|
     %h4= link_to item.title, item_path(item)
     %h5= item.description

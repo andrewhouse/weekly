@@ -1,4 +1,10 @@
 %h1 {{item.title}}
+%div{'ng-if' => 'item.days_remaining < 1'}
+  %h3 Closed
+%div{'ng-if' => 'item.days_remaining == 1'}
+  %h3 {{item.days_remaining}} Day Remaining
+%div{'ng-if' => 'item.days_remaining > 1'}
+  %h3 {{item.days_remaining}} Days Remaining
 .container
   %div.col-lg-offset-2.col-lg-8.col-lg-offset-2{'ng-controller' => 'CarouselDemoCtrl'}
     %div{'style' => 'height: 300px'}
