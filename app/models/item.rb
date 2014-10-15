@@ -88,5 +88,14 @@ class Item < ActiveRecord::Base
 
   def days_remaining
     days = created_at + 7.days
+    t = days - Time.now
+    mm, ss = t.divmod(60)
+    hh, mm = mm.divmod(60)
+    dd, hh = hh.divmod(24)
+    dd
+  end
+
+  def is_old
+    Item.old.include?(self)
   end
 end

@@ -10,7 +10,7 @@ class ItemsController < ApplicationController
   end
 
   def new
-    authorize! :new, Item
+    authorize! :new, @item
     @item = current_user.posted_items.new
     @item.images.build
     # ^ Used to Build the Nested Resource Form
@@ -44,7 +44,7 @@ class ItemsController < ApplicationController
   def destroy
     authorize! :destroy, @item
     @item.destroy
-    redirect_to items_path, notice: "Item was Successfully Destroyed"
+    redirect_to '/#/items', notice: "Item was Successfully Destroyed"
   end
 
   private

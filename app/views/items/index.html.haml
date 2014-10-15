@@ -1,10 +1,28 @@
 .container
-  .col-lg-3{'ng-repeat' => 'item in items' }
+  .col-lg-12
+    %input.search.col-lg-5.pull-right{'ng-model' => 'searchText', 'ng-model-options' => '{debounce: 500}', "placeholder" => "Search by Title or Description", 'autofocus' => true} 
+    %div.col-lg-5.sort{'ng-controller' => 'DropdownCtrl'}
+      %div{'class' => 'btn-group', 'dropdown' => '', 'is-open' => 'status.isopen'}
+        %button{ 'type' => 'button', 'class' => 'btn btn-primary dropdown-toggle', 'ng-disabled' => 'disabled' } 
+          Sorting By: {{orderTitle | capitalize}}
+          %i.fa.fa-caret-down.fa-lg.pull-right
+        %ul.pull-right{'class' => 'dropdown-menu', 'role' => 'menu'}
+          %li{'ng-repeat' => 'choice in choices'}
+            %a{'ng-click' => 'sort( choice )'} {{choice | capitalize}}
+  %br
+  %br
+  .col-lg-3{'ng-repeat' => 'item in items | filter:searchText | orderBy: order:true'  }
     %a{"href" => "/#/items/{{item.id}}"}
       %img{"ng-src" => "{{item.images[0].url}}"}
     %a{"href" => "/#/items/{{item.id}}"}
       %h4 {{item.title}}
-    %p {{item.description | limitTo: 115 }}
+      %div{'ng-if' => 'item.days_remaining < 1'}
+        %h5 Closed
+      %div{'ng-if' => 'item.days_remaining == 1'}
+        %h5 {{item.days_remaining}} Day Remaining
+      %div{'ng-if' => 'item.days_remaining > 1'}
+        %h5 {{item.days_remaining}} Days Remaining
+    %p {{item.description | limitTo: 95 }}
   -#@items.each do |item|
     %h4= link_to item.title, item_path(item)
     %h5= item.description

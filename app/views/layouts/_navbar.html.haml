@@ -4,14 +4,14 @@
       %span.icon-bar
       %span.icon-bar
       %span.icon-bar
-    %a= link_to "Weekly", root_path, class: "navbar-brand"
+    = link_to "Pricetimate", root_path, class: "navbar-brand"
     .navbar-collapse.collapse.navbar-responsive-collapse
       %ul.nav.navbar-nav
         -if current_user
           %li= link_to "My Profile", profile_path(current_user)
-          %li= link_to "New Item", new_item_path
+          %li= link_to "Create New Item", new_item_path
         %li= link_to "Items", "/#/items"
-        %li.dropdown
+        %li.dropdown.pull-right
           %a.btn-btn-default.dropdown-toggle{id:"dropdownMenu1", "data-toggle"=> 'dropdown'}
             Profile Options
             %b.caret

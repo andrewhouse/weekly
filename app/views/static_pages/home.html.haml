@@ -1,24 +1,28 @@
-%div{'ng-controller' => 'HomeCtrl'}
-  %div{'ng-controller' => 'CarouselDemoCtrl'}
-    %div{'ng-repeat' => 'h in home'}
-      %h3{'ng-if' => 'h == home["popular_items"]'} Most Popular 
-      %h3{'ng-if' => 'h == home["updated_items"]'} Recently Updated
-      %h3{'ng-if' => 'h == home["new_items"]'} New Items
-      %div{'style' => 'height: 300px'}
-        %carousel{'interval' => 'myInterval'}
-          %slide{'ng-repeat' => 'slide in h', 'active' => 'slide.active'}
-            %a{'href' => '#/items/{{slide.id}}'}
-              %img{'ng-src' => '{{slide.image}}', 'style' => 'margin:auto;'}
-            .carousel-caption
-              %h4 
-              %p
-                {{slide.title}}
-    /%h3 Recently Updated Items
-    -# @home[:updated].each do |item|
-      %h5= item.title
-    /%h3 High Demand Items
-    -# @home[:popular].each do |item|
-      %h5= item.title
-    /%h3 Newly Added Items
-    -# @home[:new].each do |item|
-      %h5= item.title
+.container
+  .col-lg-offset-2.col-lg-8.col-lg-offset-2
+    %blockquote.pull-right 
+      %h3 Helping Artists Price Their Work
+      %small Andrew House 
+  %div{'ng-controller' => 'HomeCtrl'}
+    %div{'ng-controller' => 'CarouselDemoCtrl'}
+      %div.car.col-lg-offset-2.col-lg-8.col-lg-offset-2{'ng-repeat' => 'h in home'}
+        %h3{'ng-if' => 'h == home["popular_items"]'} Most Popular 
+        %h3{'ng-if' => 'h == home["updated_items"]'} Recently Updated
+        %h3{'ng-if' => 'h == home["new_items"]'} New Items
+        %div{'style' => 'height: 300px'}
+          %carousel{'interval' => 'myInterval'}
+            %slide{'ng-repeat' => 'slide in h', 'active' => 'slide.active'}
+              %a{'href' => '#/items/{{slide.id}}'}
+                %img{'ng-src' => '{{slide.image}}', 'style' => 'margin:auto;'}
+              .carousel-caption
+                %a{'href' => '#/items/{{slide.id}}'}
+                  %h4 {{slide.title}}
+      /%h3 Recently Updated Items
+      -# @home[:updated].each do |item|
+        %h5= item.title
+      /%h3 High Demand Items
+      -# @home[:popular].each do |item|
+        %h5= item.title
+      /%h3 Newly Added Items
+      -# @home[:new].each do |item|
+        %h5= item.title

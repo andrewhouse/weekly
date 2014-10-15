@@ -14,15 +14,31 @@
  *= require_self
  */
 
+body{
+  color: #2b3e50;
+}
+
 .bg-outer {
-  background-color: #9cc;
 }
 
 .bg-inner{
-  outline: 1px solid #aaa;         
-  border-top: 1px solid #fff;
+  color: #2b3e50;
   padding: 10px;
   background: lightgray;
+  border-radius: 1%;
+}
+
+.navbar{
+  background: slategray;
+  .navbar-brand{
+    font-size: 2em;
+  }
+}
+.nav{
+  .navbar-brand{
+    font-size: 2em;
+  }
+  font-size: 1.2em;
 }
 
 .round {
@@ -32,7 +48,7 @@
 
 .col-lg-3{
     text-align: center;
-    height: 310px;
+    height: 320px;
     margin-top: 2%;
     margin-left: 6%;
     background: #e4e4e4;
@@ -42,7 +58,7 @@
   a{
     display: block;
     text-decoration: none;
-    color: black;
+    color: #2b3e50;
   }
   img{
     height: 200px;
@@ -99,11 +115,67 @@
   }
 }
 
-.fUpload{
-  color: red;
+.carousel{ 
+  img {
+    height: 100%;
+  }
+}
+
+.car{
+}
+
+.search{
+  text-align: center;
+  width: 25%;
+  margin-right: 6%;
+}
+
+.sort{
+  margin-left: -3.5%;
+  text-align: center;
+  button{
+    width: 250px; 
+  }
+}
+
+th{
   text-align: center;
 }
 
-.carousel img {
-  height: 100%;
+table{
+  color:white;
 }
+.table-striped>tbody>tr{
+   background-color: slategray;
+   th{
+   }
+}
+
+.table-striped>thead>tr{
+   background-color: slategray;
+}
+
+.left{
+  margin-left:4%;
+}
+
+.right{
+  margin-right:4%;
+}
+
+.colMid{
+  padding-left: 100px;
+}
+
+.carousel-caption a h4{
+  color: white;
+}
+
+blockquote {
+  margin-bottom: -8%;
+  margin-top: -4%;
+  small {
+    color: #2b3e50;
+  }
+}
+

@@ -67,3 +67,34 @@ var App = angular.module('itemApp', ['ngResource', 'ngRoute', 'ui.bootstrap'])
     }
   }
 }])
+
+.controller('DropdownCtrl', ['$scope', function ($scope) {
+  $scope.choices = [
+    'Title( A - Z )',
+    'Title( Z - A )',
+    'description',
+    'Oldest',
+    'Recently Updated',
+    'Newest'
+  ];
+
+  $scope.status = {
+    isopen: false
+  };
+
+  $scope.toggled = function(open) {
+    console.log('Dropdown is now: ', open);
+  };
+
+  $scope.toggleDropdown = function($event) {
+    $event.preventDefault();
+    $event.stopPropagation();
+    $scope.status.isopen = !$scope.status.isopen;
+  };
+}])
+
+.filter('capitalize', function() {
+    return function(input, all) {
+      return (!!input) ? input.replace(/([^\W_]+[^\s-]*) */g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();}) : '';
+    }
+  })
