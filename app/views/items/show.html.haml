@@ -5,6 +5,21 @@
   %h3 {{item.days_remaining}} Day Remaining
 %div{'ng-if' => 'item.days_remaining > 1'}
   %h3 {{item.days_remaining}} Days Remaining
+.col-lg-offset-4.col-lg-4
+  .progress{'ng-if' => 'item.days_remaining == 6'}
+    .progress-bar{'role' => 'progressbar', 'aria-valumin' => '0', 'aria-valumax' => '7', 'style' => 'width: 15%'} Day 1
+  .progress{'ng-if' => 'item.days_remaining == 5'}
+    .progress-bar{'role' => 'progressbar', 'aria-valumin' => '0', 'aria-valumax' => '7', 'style' => 'width: 30%'} Day 2
+  .progress{'ng-if' => 'item.days_remaining == 4'}
+    .progress-bar{'role' => 'progressbar', 'aria-valumin' => '0', 'aria-valumax' => '7', 'style' => 'width: 43%'} Day 3
+  .progress{'ng-if' => 'item.days_remaining == 3'}
+    .progress-bar{'role' => 'progressbar', 'aria-valumin' => '0', 'aria-valumax' => '7', 'style' => 'width: 58%'} Day 4
+  .progress{'ng-if' => 'item.days_remaining == 2'}
+    .progress-bar{'role' => 'progressbar', 'aria-valumin' => '0', 'aria-valumax' => '7', 'style' => 'width: 70%'} Day 5
+  .progress{'ng-if' => 'item.days_remaining == 1'}
+    .progress-bar{'role' => 'progressbar', 'aria-valumin' => '0', 'aria-valumax' => '7', 'style' => 'width: 85%'} Last Day!
+  .progress{'ng-if' => 'item.days_remaining <= 0 '}
+    .progress-bar{'role' => 'progressbar', 'aria-valumin' => '0', 'aria-valumax' => '7', 'style' => 'width: 100%'} Item Closed! Thanks For Your Support
 .container
   %div.col-lg-offset-2.col-lg-8.col-lg-offset-2{'ng-controller' => 'CarouselDemoCtrl'}
     %div{'style' => 'height: 300px'}
